@@ -36,7 +36,7 @@
                         <img src="./images/Mangalonga.png" alt="Manga longa">
                     </div>
                     <p>Manga longa</p>
-                    </div>
+                </div>
             </div>
             <h3>Escolha a gola</h3>
             <div class="gola">
@@ -57,7 +57,7 @@
                         <img src="./images/GolaPolo.png" alt="Gola polo">
                     </div>
                     <p>Gola polo</p>
-                    </div>
+                </div>
             </div>
             <h3>Escolha o tecido</h3>
             <div class="tecido">
@@ -78,12 +78,12 @@
                         <img src="./images/Poliester.png" alt="Poliéster">
                     </div>
                     <p>Poliéster</p>
-                    </div>
+                </div>
             </div>
             <div class="imagem-referencia">
                 <h3>Imagem de referência</h3>
                 <input type="url" placeholder="Insira o link" class="link">
-                <button>Confirmar pedido</button>
+                <button class="botao-pedido" onclick="enviarPedido()">Confirmar pedido</button>
             </div>
         </div>
         <div class="ilustracao">
@@ -92,7 +92,8 @@
     </div>
     <div class="ultimos-pedidos"></div>
 
-   <script src="scripts.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>

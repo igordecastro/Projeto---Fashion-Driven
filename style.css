@@ -9,6 +9,11 @@ header {
     left: 0;
     top: 0;
     background-color: #404EED;
+    z-index: 1;
+}
+
+strong {
+    font-weight: bold;
 }
 
 h3 {
@@ -30,6 +35,7 @@ input {
 }
 
 button {
+    color: #FFFFFF;
     margin-top: 23px;
     width: 398px;
     height: 40px;
@@ -68,6 +74,7 @@ header > img {
 
 .ultimos-pedidos {
     height: 230px;
+    margin-left: 121px;
 }
 
 .modelo, .gola, .tecido {
@@ -101,15 +108,42 @@ header > img {
     object-fit: scale-down;
 }
 
-.imagem-referencia {
+.imagem-referencia, .pedido{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .selecionado {
-    border: 2px solid #25e000;
+    border: 2px solid #404EED;
 }
 
 .botao-selecionado {
-    background-color: #25e000;
+    background-color: #404EED;
+}
+
+.ultimos-pedidos h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.pedidos {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.pedido {
+    width: 201px;
+    height: 236px;
+    background-color: #FFFFFF;
+    margin-right: 16px;
+    border-radius: 10px;
+}
+
+.pedido img {
+    width: 180px;
+    height: 180px;
+    object-fit: none;
 }

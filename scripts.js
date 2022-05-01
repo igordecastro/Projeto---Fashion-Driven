@@ -1,8 +1,10 @@
-const nome = prompt("Qual é seu nome?");
+/* const nome = prompt("Qual é seu nome?"); */
 
 let modelo = "";
 let gola = "";
 let tecido = "";
+
+let blusasEncomendadas = [];
 
 function selecionaOpcao(el) {
     const pai = el.parentNode;
@@ -30,6 +32,7 @@ function alterarBotao() {
 }
 
 function tratarSucesso() {
+    carregarEncomendadas();
     alert("Encomenda realizada com sucesso!");
 }
 
@@ -80,8 +83,28 @@ function enviarPedido() {
         objeto.material = "polyester"
     }
 
-    console.log(objeto);
     const promise = axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", objeto);
     promise.then(tratarSucesso);
     promise.catch(tratarErro);
 }
+
+function carregarEncomendadas() {
+    let promise = axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts");
+    promise.then(renderizarEncomendadas);
+}
+
+function renderizarEncomendadas(response) {
+    const lista = document.querySelector(".pedidos");
+    console.log(response);
+    lista.innerHTML = '';
+    for(let i = 0; i < 10; i++) {
+        lista.innerHTML += `
+        <div class="pedido">
+                <img src="${response.data[i].image}" alt="Blusa ${i+1}">
+                <p><strong>Criador:</strong> ${response.data[i].owner}</p>
+            </div>
+        `
+    }
+}
+
+carregarEncomendadas();

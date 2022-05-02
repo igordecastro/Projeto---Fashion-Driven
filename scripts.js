@@ -18,7 +18,12 @@ function selecionaOpcao(el) {
     alterarBotao();
 }
 
-document.querySelector(".link").addEventListener("keyup", alterarBotao);
+document.querySelector(".link").addEventListener("keyup", function (event) {
+    if(event.key === "Enter") {
+        event.preventDefault();
+        alterarBotao();
+    }
+});
 
 function verificaSelecao() {
     if (document.querySelector(".modelo .selecionado") !== null && document.querySelector(".gola .selecionado") !== null && document.querySelector(".tecido .selecionado") !== null && document.querySelector(".link").value !== "") {
@@ -29,7 +34,8 @@ function verificaSelecao() {
 
 function alterarBotao() {
     if (verificaSelecao()) {
-        document.querySelector(".botao-pedido").classList.add("botao-selecionado");
+        document.querySelector(".botao-pedido").classList.add("escondido");
+        document.querySelector(".botao-selecionado").classList.remove("escondido");
     }
 }
 

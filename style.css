@@ -111,8 +111,6 @@ header > img {
 .imagem-referencia, .pedido{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .selecionado {

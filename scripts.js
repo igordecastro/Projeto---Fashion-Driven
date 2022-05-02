@@ -18,6 +18,8 @@ function selecionaOpcao(el) {
     alterarBotao();
 }
 
+document.querySelector(".link").addEventListener("keyup", alterarBotao);
+
 function verificaSelecao() {
     if (document.querySelector(".modelo .selecionado") !== null && document.querySelector(".gola .selecionado") !== null && document.querySelector(".tecido .selecionado") !== null && document.querySelector(".link").value !== "") {
         return true;

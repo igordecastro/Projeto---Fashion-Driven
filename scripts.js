@@ -1,4 +1,4 @@
-/* const nome = prompt("Qual é seu nome?"); */
+const nome = prompt("Qual é seu nome?");
 
 let modelo = "";
 let gola = "";
@@ -94,17 +94,32 @@ function carregarEncomendadas() {
 }
 
 function renderizarEncomendadas(response) {
+    blusasEncomendadas = response.data;
     const lista = document.querySelector(".pedidos");
-    console.log(response);
     lista.innerHTML = '';
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         lista.innerHTML += `
-        <div class="pedido">
-                <img src="${response.data[i].image}" alt="Blusa ${i+1}">
+        <div class="pedido" onclick="pedirNovamente(${i})">
+                <img src="${response.data[i].image}" alt="Blusa ${i + 1}">
                 <p><strong>Criador:</strong> ${response.data[i].owner}</p>
             </div>
         `
     }
+}
+
+function pedirNovamente(i) {
+    if (confirm("Gostaria de pedir essa encomenda?") == true) {
+        axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",
+            {
+                "model": blusasEncomendadas[i].model,
+                "neck": blusasEncomendadas[i].neck,
+                "material": blusasEncomendadas[i].material,
+                "image": blusasEncomendadas[i].image,
+                "owner": nome,
+                "author": blusasEncomendadas[i].owner
+            });
+    }
+    carregarEncomendadas();
 }
 
 carregarEncomendadas();
